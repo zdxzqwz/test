@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- dao -->
+    <bean id="userInfoDAO" class="com.it.dao.UserInfoDAO">
+        
+    </bean>
+	<!-- services -->
+    <bean id="userInfoServicesImpl" class="com.it.services.UserInfoServicesImpl">
+    	<property name="userInfoDAO" ref="userInfoDAO"></property>
+    </bean>
+	<!-- controller -->
+	<bean id="userInfoServlet" class="com.it.controller.UserInfoServlet">
+		<property name="userInfoServicesImpl" ref="userInfoServicesImpl"></property>
+	</bean>
+	
+</beans>
